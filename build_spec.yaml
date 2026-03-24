@@ -11,8 +11,9 @@ steps:
     name: "Build Stage"
     command: |
       echo "Building project..."
-      mkdir output
+      mkdir -p output
       echo "<h1>Hello OCI</h1>" > output/index.html
+      ls -l output   # 👈 IMPORTANT (debug)
 
   - type: Command
     name: "Test Stage"
@@ -27,4 +28,4 @@ steps:
 outputArtifacts:
   - name: website
     type: BINARY
-    location: output
+    location: output/
