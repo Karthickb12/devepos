@@ -1,0 +1,30 @@
+version: 0.1
+
+component: build
+
+timeoutInSeconds: 600
+
+shell: bash
+
+steps:
+  - type: Command
+    name: "Build Stage"
+    command: |
+      echo "Building project..."
+      mkdir output
+      echo "<h1>Hello OCI</h1>" > output/index.html
+
+  - type: Command
+    name: "Test Stage"
+    command: |
+      echo "Running tests..."
+
+  - type: Command
+    name: "Deploy Stage"
+    command: |
+      echo "Deploy step executed"
+
+outputArtifacts:
+  - name: website
+    type: BINARY
+    location: output
